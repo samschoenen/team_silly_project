@@ -30,6 +30,11 @@ def save_to_csv(keyword, network_dict, filename):
 def get_keyword_dict(keyword, keyword_type_network):
     return keyword_type_network[keyword]
 
+'''loading a csv file that you already created'''
+def load_csv_file(filename):
+    df = pd.read_csv(filename)
+    return df
+
 if __name__=="__main__":
     full_dict = get_json_file('keyword_network.json')
     googler_network = full_dict["googler"]
