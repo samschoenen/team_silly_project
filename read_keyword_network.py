@@ -1,5 +1,7 @@
 import json
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 '''you can laod any json file of your choice with this'''
 def get_json_file(filename):
@@ -32,15 +34,40 @@ def get_keyword_dict(keyword, keyword_type_network):
 
 '''loading a csv file that you already created'''
 def load_csv_file(filename):
+    filename = "keyword_breakdown/" + filename
     df = pd.read_csv(filename)
     return df
 
+def make_horizontal_barplot(filename):
+    sns.set_theme()
+    # Initialize the matplotlib figure
+    f, ax = plt.subplots(figsize=(6, 15))
+
+    # Load the example car crash dataset
+    df = load_csv_file(filename).sort_values("count", ascending=False)
+    df = df.loc[2:16]
+
+    # Plot the total crashes
+    sns.set_color_codes("pastel")
+    sns.barplot(x="count", y="word", data=df,
+                label="Number of uses", color="b")
+
+    # Add a legend and informative axis label
+    ax.legend(ncol=2, loc="lower right", frameon=True)
+    ax.set(xlim=(0, 100), ylabel="",
+        xlabel="Number of times used")
+    sns.despine(left=True, bottom=True)
+    plt.title(filename[:-4])
+    plt.show()
+
 if __name__=="__main__":
-    full_dict = get_json_file('keyword_network.json')
-    googler_network = full_dict["googler"]
-    creator_network = full_dict["creator"]
-    editor_network = full_dict["editor"]
-    other_network = full_dict["other"]
+    #full_dict = get_json_file('keyword_network.json')
+    #googler_network = full_dict["googler"]
+    #creator_network = full_dict["creator"]
+    #editor_network = full_dict["editor"]
+    #other_network = full_dict["other"]
 
     #print(json.dumps(get_keyword_dict("write",creator_network), indent=4))
-    save_to_csv("what", googler_network, "what.csv")
+    #save_to_csv("what", googler_network, "what.csv")
+    #make_horizontal_barplot("what.csv")
+    make_horizontal_barplot("what.csv")
