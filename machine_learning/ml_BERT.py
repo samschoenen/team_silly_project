@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
@@ -8,12 +9,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 # Load the CSV data
-data = pd.read_csv("./manual_keyword_selection/requests_mapped_to_keywords.csv")
-if data.isnull():
+#data = pd.read_csv("manual_keyword_selection/requests_mapped_to_keywords.csv")
+# Get the current directory of the script
+current_dir = os.path.dirname(os.path.realpath(__file__))
+# Specify the path to data.csv relative to the current directory
+csv_path = os.path.join(current_dir, '..', 'manual_keyword_selection', 'requests_mapped_to_keywords.csv')
+# Read the CSV file
+df = pd.read_csv(csv_path)
+
+if df.empty:
     print("Data is null")
 
 # Select only the "request" and "request_type" columns
-selected_data = data[["request", "request_type"]]
+selected_data = df[["request", "request_type"]]
 
 # Split data into train and test sets
 train_data, test_data = train_test_split(selected_data, train_size=1000, test_size=len(selected_data) - 1000, shuffle=True)
