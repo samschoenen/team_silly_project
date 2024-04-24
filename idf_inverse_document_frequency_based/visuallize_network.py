@@ -44,8 +44,8 @@ def plot_sector_part(d, x_start, x_end, y_start, y_end,filename):
     dlog_zero_diagonal = create_log_matrix(d_zero_diagonal)
     plot_heatmap(dlog_zero_diagonal,filename=filename)
 
-def get_correlated_word_list():
-    df = pd.read_csv("highly_correlated_words.csv")
+def get_correlated_word_list(filename):
+    df = pd.read_csv(filename)
     word_list_1 = list(df["word1"])
     word_list_2 = list(df["word2"])
     
@@ -76,5 +76,8 @@ if __name__=="__main__":
     #     for j in range(len(sector_borders)-1):
     #         filename = "visualisations/commonness_matrix_" + "x_from_" + str(sector_borders[i]) + "_to_" + str(sector_borders[i+1])+ "_y_from_" + str(sector_borders[j]) +"_to_" +  str(sector_borders[j+1]) + ".png"
     #         plot_sector_part(d=d, x_start=sector_borders[i], x_end=sector_borders[i+1], y_start=sector_borders[j], y_end=sector_borders[j+1],filename=filename)
-    word_list_1, word_list_2, combined_word_list = get_correlated_word_list()
+    #filename = "highly_correlated_words.csv"
+    threshold = 20
+    filename = "common_pairs_min_" + str(threshold) + "_common_appearances.csv"
+    word_list_1, word_list_2, combined_word_list = get_correlated_word_list(filename)
     make_graph(word_list_1, word_list_2, combined_word_list)
