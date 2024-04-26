@@ -78,6 +78,6 @@ if __name__=="__main__":
     #         plot_sector_part(d=d, x_start=sector_borders[i], x_end=sector_borders[i+1], y_start=sector_borders[j], y_end=sector_borders[j+1],filename=filename)
     #filename = "highly_correlated_words.csv"
     threshold = 20
-    filename = "common_pairs_min_" + str(threshold) + "_common_appearances.csv"
+    filename = "idf_inverse_document_frequency_based/common_pairs_min_" + str(threshold) + "_common_appearances.csv"
     word_list_1, word_list_2, combined_word_list = get_correlated_word_list(filename)
     make_graph(word_list_1, word_list_2, combined_word_list)
