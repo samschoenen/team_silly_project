@@ -8,6 +8,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+
+
 # Load the CSV data
 #data = pd.read_csv("manual_keyword_selection/requests_mapped_to_keywords.csv")
 # Get the current directory of the script
@@ -24,7 +26,7 @@ if df.empty:
 selected_data = df[["request", "request_type"]]
 
 # Split data into train and test sets
-train_data, test_data = train_test_split(selected_data, train_size=1000, test_size=len(selected_data) - 1000, shuffle=True)
+train_data, test_data = train_test_split(selected_data, train_size=5000, test_size=len(selected_data) - 1000, shuffle=True)
 
 # Define a simple classifier on top of BERT
 class Classifier(nn.Module):
