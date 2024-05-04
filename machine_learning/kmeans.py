@@ -1,16 +1,18 @@
+import os
 import pandas as pd
 from transformers import BertTokenizer, BertModel
 import torch
 from sklearn.cluster import KMeans
-
-from ml_BERT import df
 
 # Load pre-trained BERT tokenizer and model
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertModel.from_pretrained('bert-base-uncased')
 
 # Example requests (replace this with your dataset)
-requests = df['request']
+current_dir = os.path.dirname(os.path.realpath(__file__))
+csv_path = os.path.join(current_dir, '..', 'manual_keyword_selection', 'requests_mapped_to_keywords.csv')
+df = pd.read_csv(csv_path)
+requests = df['request'].head(100).tolist()  # Convert pandas Series to list of strings
 
 # Tokenize and encode the requests
 tokenized_inputs = tokenizer(requests, padding=True, truncation=True, return_tensors='pt')
@@ -26,7 +28,7 @@ pooled_embeddings = torch.mean(outputs.last_hidden_state, dim=1)
 pooled_embeddings_np = pooled_embeddings.numpy()
 
 # Perform k-means clustering
-kmeans = KMeans(n_clusters=2, random_state=0).fit(pooled_embeddings_np)
+kmeans = KMeans(n_clusters=10, random_state=0).fit(pooled_embeddings_np)
 
 # Get cluster assignments
 cluster_labels = kmeans.labels_

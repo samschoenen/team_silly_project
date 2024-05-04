@@ -26,7 +26,7 @@ if df.empty:
 selected_data = df[["request", "request_type"]]
 
 # Split data into train and test sets
-train_data, test_data = train_test_split(selected_data, train_size=5000, test_size=len(selected_data) - 1000, shuffle=True)
+train_data, test_data = train_test_split(selected_data, train_size=1000, test_size=len(selected_data) - 1000, shuffle=True)
 
 # Define a simple classifier on top of BERT
 class Classifier(nn.Module):
