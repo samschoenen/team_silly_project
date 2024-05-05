@@ -68,14 +68,14 @@ def extract_new_features(request_df, word_list_df):
 
 if __name__=="__main__":
     threshold = 20
-    common_pairs_filename = "idf_inverse_document_frequency_based/common_pairs_min_" + str(threshold) + "_common_appearances.csv"
+    common_pairs_filename = "idf_inverse_document_frequency_based/common_pairs_min_" + str(threshold) + "_common_appearances2.csv"
     common_pairs = load_dataframe(common_pairs_filename)
     requests_filename = "request_analysis/requests_only.csv"
     requests_df = load_dataframe(requests_filename)
     reduced_request_df = reduce_to_interesting_requests(common_pairs=common_pairs, requests_df=requests_df)
     word_list_filename = "idf_inverse_document_frequency_based/word_list_df_expanded.csv"
     word_list_df = load_dataframe(word_list_filename)
-    reduced_request_df = extract_new_features(reduced_request_df, word_list_df)
-    print(reduced_request_df.size)
+    #reduced_request_df = extract_new_features(reduced_request_df, word_list_df)
+    #print(reduced_request_df.size)
     reduced_request_df = reduced_request_df.sort_values("word1", axis=0)
-    reduced_request_df.to_csv("request_analysis/requests_with_features.csv")
+    reduced_request_df.to_csv("request_analysis/requests_with_features_simplified.csv")
