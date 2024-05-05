@@ -21,11 +21,14 @@ def return_common_pair_df(d, threshold):
     return df
 
 if __name__=="__main__":
-    d = pd.read_csv("commmonness_matrix.csv",index_col=0)
+    in_filename = "significance/commmonness_matrix_sub4.csv"
+    #filename = "commmonness_matrix2.csv"
+    d = pd.read_csv(in_filename,index_col=0)
     d = create_0_diagonal_matrix(d)
-    threshold = 20
+    threshold = 5
     common_pairs = return_common_pair_df(d, threshold)
     print(common_pairs.size)
     print(common_pairs)
-    filename = "common_pairs_min_" + str(threshold) + "_common_appearances.csv"
-    common_pairs.to_csv(filename)
+    #out_filename = "common_pairs_min_" + str(threshold) + "_common_appearances2.csv"
+    out_filename = "significance/common_pairs_sub4.csv"
+    common_pairs.to_csv(out_filename)

@@ -8,8 +8,9 @@ def get_idf_value(high_value_words, term):
     return 0
 
 def step1():
-    high_value_words = pd.read_csv("high_value_words.csv")
-    request_df = pd.read_csv("requests_only.csv")
+    high_value_words = pd.read_csv("significance/high_value_words_sub4.csv")
+    #request_df = pd.read_csv("request_analysis/requests_only.csv")
+    request_df = pd.read_csv("significance/requests_sub4.csv")
     request_df = request_df.iloc[:]
 
     high_value_requests = []
@@ -42,4 +43,4 @@ if __name__=="__main__":
     filename, high_idf_requests_df, high_value_word_list = step1()
     commonness_matrix = create_empty_commonness_matrix(high_value_word_list)
     commonness_matrix = fill_out_commonness_matrix(commonness_matrix, high_idf_requests_df)
-    commonness_matrix.to_csv("commmonness_matrix.csv")
+    commonness_matrix.to_csv("significance/commmonness_matrix_sub4.csv")

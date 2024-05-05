@@ -16,8 +16,8 @@ def load_words(number_of_words):
 '''
 Loads all the request from the 4 different types of request into its own dataframe and outputs it
 '''
-def load_request_dataframes():
-    request_df = pd.read_csv("requests_only.csv")
+def load_request_dataframes(in_file):
+    request_df = pd.read_csv(in_file)
     return request_df.iloc[:50000]
 
 '''
@@ -121,19 +121,23 @@ def fuse_request_matrix_into_df(request_df, matrix, columns):
     return request_df
 
 if __name__=="__main__":
-    number_of_words = 1000
-    request_df = load_request_dataframes()
+    number_of_words = 3000
+    #in_file = "requests_only.csv"
+    sub = 1
+    in_file = "significance/requests_sub4.csv"
+    request_df = load_request_dataframes(in_file)
     word_list = load_words(number_of_words)
     print("step 1")
     columns, matrix = fill_out_request_dataframe(request_df, word_list)
     print("step 3")
     word_list_df, idf_i_list = add_idf_to_word_dataframe(request_matrix=matrix, number_of_words=number_of_words)
     print("step 4")
-    matrix = add_tf_idf_to_request_dataframe(matrix, idf_i_list)
-    print("step 5")
-    request_df = fuse_request_matrix_into_df(request_df, matrix, columns)
-    print("step 6")
-    request_file_string = "request_df_"+ str(number_of_words) + "_words.csv"
-    word_list_string = "word_list_df_" + str(number_of_words) +"_words.csv"
-    request_df.to_csv(request_file_string)
+    #matrix = add_tf_idf_to_request_dataframe(matrix, idf_i_list)
+    #print("step 5")
+    #request_df = fuse_request_matrix_into_df(request_df, matrix, columns)
+    #print("step 6")
+    #request_file_string = "request_df_"+ str(number_of_words) + "_words.csv"
+    #word_list_string = "significance/word_list_df_" + str(number_of_words) +"_words.csv"
+    #request_df.to_csv(request_file_string)
+    word_list_string = "significance/word_list_df_sub4.csv"
     word_list_df.to_csv(word_list_string)

@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 
-idf_threshold = 5
-number_of_words = 1000
-filename = "word_list_df_" + str(number_of_words) + "_words.csv"
+idf_threshold = 3
+number_of_words = 3000
+#filename = "idf_inverse_document_frequency_based/word_list_df_expanded.csv" #+ str(number_of_words) + "_words.csv"
+filename = "significance/word_list_df_sub4.csv"
 word_list_df = pd.read_csv(filename)
 
 high_value_words = []
@@ -16,4 +17,5 @@ df = pd.DataFrame(high_value_words, columns=["words","idf"])
 df.idf = pd.to_numeric(df.idf, errors='coerce')
 df = df.sort_values('idf', ascending = False)
 print(df)
-df.to_csv("high_value_words.csv")
+out_file = "high_value_words_sub4.csv"
+df.to_csv(out_file)

@@ -48,7 +48,6 @@ def get_correlated_word_list(filename):
     df = pd.read_csv(filename)
     word_list_1 = list(df["word1"])
     word_list_2 = list(df["word2"])
-    
     combined_word_list = []
     for word in word_list_1:
         if word not in combined_word_list:
@@ -60,12 +59,23 @@ def get_correlated_word_list(filename):
 
 def make_graph(word_list1, word_list2, combined_word_list):
     nxG = nx.Graph()
-    #pos = nx.spring_layout(nxG, k=0.15, iterations=20)
+    
     for word in combined_word_list:
         nxG.add_node(word)
     for word1, word2 in zip(word_list1, word_list2):
         nxG.add_edge(word1, word2)
-    nx.draw(nxG, with_labels=True, font_size=10, width=0.4,node_color='lightblue', node_size=400)
+    
+    df = pd.DataFrame(index=nxG.nodes(), columns=nxG.nodes())
+    for row, data in nx.shortest_path_length(nxG):
+        for col, dist in data.items():
+            df.loc[row,col] = dist
+    df = df.fillna(df.max().max())
+
+    #layout = nx.kamada_kawai_layout(nxG, dist=df.to_dict())
+    layout = nx.spring_layout(nxG)
+    plt.figure(figsize=(2,1))
+    nx.draw(nxG, layout, with_labels=True, font_size=8, width=0.1,node_color='lightblue', node_size=200)
+    #nx.draw(nxG, with_labels=True, font_size=10, width=0.2,node_color='lightblue', node_size=200)
     plt.show()
 
 if __name__=="__main__":
@@ -78,6 +88,7 @@ if __name__=="__main__":
     #         plot_sector_part(d=d, x_start=sector_borders[i], x_end=sector_borders[i+1], y_start=sector_borders[j], y_end=sector_borders[j+1],filename=filename)
     #filename = "highly_correlated_words.csv"
     threshold = 20
-    filename = "idf_inverse_document_frequency_based/common_pairs_min_" + str(threshold) + "_common_appearances.csv"
+    #filename = "idf_inverse_document_frequency_based/common_pairs_min_" + str(threshold) + "_common_appearances2.csv"
+    filename = "significance/common_pairs_sub4.csv"
     word_list_1, word_list_2, combined_word_list = get_correlated_word_list(filename)
     make_graph(word_list_1, word_list_2, combined_word_list)

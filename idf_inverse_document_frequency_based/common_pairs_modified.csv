@@ -1,0 +1,140 @@
+,word1,word2,category
+0,special,password,Password Generation
+1,science,fiction,Word Structure
+2,linear,regression,Programming
+3,all,return,Programming
+4,money,save,Financial Advice
+5,returns,takes,Programming
+6,time,when,Artifacts
+7,table,columns,SQL
+8,networks,neural,Programming
+9,network,neural,Programming
+10,email,subject,Content generation
+11,would,appropriate,Artifacts
+12,cons,pros,Knowledge
+13,y,x,Mathematics
+14,when,consider,Artifacts
+15,false,true,Sentence Structure
+16,warming,global,Ecological
+17,languages,programming,Programming
+18,pollution,air,Ecological
+19,analysis,sentiment,Word Structure
+20,choice,multiple,Word Structure
+21,true,whether,Sentence Structure
+22,essay,persuasive,Content generation
+23,whether,determine,Sentence Structure
+24,eating,benefits,Cooking
+25,health,benefits,Cooking
+26,password,random,Password Generation
+27,all,such,Artifacts
+28,discussing,dialogue,Content generation
+29,would,like,Artifacts
+30,less,100,Sentence Structure
+31,events,timeline,Content generation
+32,app,mobile,Word Structure
+33,ways,increase,Sentence Structure
+34,perfect,present,Text Editing
+35,tense,present,Text Editing
+36,without,changing,Text Editing
+37,post,blog,Content generation
+38,scenario,where,Sentence Structure
+39,situation,where,Sentence Structure
+40,dialogue,characters,Content generation
+41,Interview Questions,questions,Interview Questions
+42,review,movie,Content generation
+43,voice,active,Text Editing
+44,all,output,Programming
+45,instructions,set,Sentence Structure
+46,view,point,Word Structure
+47,appropriate,response,Word Structure
+48,song,lyrics,Song Lyrics
+49,grammatically,correct,Text Editing
+50,spelling,correct,Text Editing
+51,virtual,assistant,Work
+52,snippet,code,Programming
+53,print,code,Programming
+54,change,climate,Ecological
+55,recent,news,Knowledge
+56,natural,processing,Programming
+57,all,query,SQL
+58,customers,query,SQL
+59,table,query,SQL
+60,columns,query,SQL
+61,climate,effects,Ecological
+62,spelling,grammar,Text Editing
+63,correct,grammar,Text Editing
+64,sides,triangle,Mathematics
+65,making,process,Cooking
+66,vegan,recipe,Cooking
+67,all,sum,Mathematics
+68,integers,sum,Mathematics
+69,password,least,Password Generation
+70,essay,importance,Content generation
+71,post,importance,Content generation
+72,recipe,healthy,Cooking
+73,detect,algorithm,Programming
+74,sort,algorithm,Programming
+75,table,write,SQL
+76,columns,write,SQL
+77,query,write,SQL
+78,all,word,SQL
+79,antonym,word,Artifacts
+80,appropriate,word,Artifacts
+81,synonym,word,Artifacts
+82,replace,word,Artifacts
+83,correct,word,Text Editing
+84,synonyms,word,Artifacts
+85,cloud,computing,Programming
+86,characters,tweet,Content generation
+87,persuasive,argument,Content generation
+88,model,language,Programming
+89,programming,language,Programming
+90,natural,language,Programming
+91,processing,language,Programming
+92,start,letter,Content generation
+93,news,headline,Knowledge
+94,all,remove,Programming
+95,return,integer,Programming
+96,state,current,Word Structure
+97,would,need,Artifacts
+98,password,8,Password Generation
+99,post,Content generation,Content generation
+100,practices,best,Word Structure
+101,describes,best,Sentence Structure
+102,word,best,Artifacts
+103,x,value,Mathematics
+104,ways,improve,Sentence Structure
+105,cost,total,Mathematics
+106,query,total,SQL
+107,engine,search,Word Structure
+108,query,search,SQL
+109,population,countries,Knowledge
+110,there,many,Artifacts
+111,would,good,Artifacts
+112,web,page,Word Structure
+113,fact,interesting,Knowledge
+114,facts,interesting,Knowledge
+115,development,software,Programming
+116,correct,form,Text Editing
+117,brief,provide,Sentence Structure
+118,word,definition,Artifacts
+119,model,machine,Programming
+120,algorithm,machine,Programming
+121,regular,expression,SQL
+122,mathematical,expression,Mathematics
+123,fictional,character,Word Structure
+124,voice,passive,Text Editing
+125,active,passive,Text Editing
+126,price,stock,Financial Advice
+127,market,stock,Financial Advice
+128,part,speech,Artifacts
+129,parts,speech,Artifacts
+130,figure,speech,Artifacts
+131,word,speech,Artifacts
+132,campaign,marketing,Work
+133,digital,marketing,Work
+134,strategy,marketing,Work
+135,strategies,marketing,Work
+136,would,someone,Artifacts
+137,all,possible,Artifacts
+138,solutions,possible,Artifacts
