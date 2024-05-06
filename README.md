@@ -12,4 +12,4 @@ Our silly project
 Post any tasks that you think would fit into this project as a github issue, where you can also assign the task to yourself or someone else.
 
 ## Slides
-for consultation: https://docs.google.com/presentation/d/1Ssu5Y1DDiZohVl4pfNoYtr1hrypojk70jKn35tXjHxc/edit?usp=sharing
+for presentation: Präsentation.pptx
