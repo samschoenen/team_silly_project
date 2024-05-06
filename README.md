@@ -12,4 +12,4 @@ Our silly project
 Post any tasks that you think would fit into this project as a github issue, where you can also assign the task to yourself or someone else.
 
 ## Slides
-for presentation: Präsentation.pptx
+for presentation: [Präsentation.pptx](https://github.com/samschoenen/team_silly_project/blob/main/Pr%C3%A4sentation.pptx)
